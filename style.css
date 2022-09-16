@@ -1,0 +1,351 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  background: var(--bg);
+  height: 100%;
+}
+:root {
+  --bg: #fcf9f4;
+  --basecolor: #071013;
+  --ballcolor: #edbf37;
+  --barcolor: #aaaaaa;
+  --accentcolor: #eb5160;
+  --barwidth: 11px;
+}
+#main-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+
+#newton-cradle {
+  position: relative;
+  width: 500px;
+  height: 300px;
+}
+
+.cradle-bar {
+  border: var(--barwidth) solid var(--barcolor);
+  border-bottom: none;
+  height: 87%;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 44px 44px 0 0;
+}
+.cradle-base {
+  height: 13%;
+  background-color: var(--basecolor);
+  border-radius: 18px 18px 0 0;
+}
+.cradle-balls {
+  position: absolute;
+  display: flex;
+  top: var(--barwidth);
+  width: 100%;
+  height: 47%;
+  justify-content: center;
+}
+.cradle-ball {
+  transform-origin: top;
+}
+.cradle-ball:first-child {
+  transform: rotate(0deg);
+  animation: movefirst 1s ease-in-out infinite 2s;
+}
+.cradle-ball:last-child {
+  transform: rotate(0deg);
+  animation: movesecond 1s ease-in-out infinite 2.45s;
+}
+.cradle-ball:before {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 1px;
+  height: 100%;
+  background-color: var(--barcolor);
+}
+.cradle-ball > span {
+  position: relative;
+  display: block;
+  background-color: var(--ballcolor);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+/*emoji*/
+.happy .eyes {
+  display: block;
+  text-align: center;
+}
+.happy .eyes:before,
+.happy .eyes:after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border: 3px solid #000;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(-24deg) skew(33deg);
+  margin: 15px 0;
+  position: relative;
+  right: 9px;
+}
+.happy .eyes:after {
+  border: 3px solid #000;
+  border-top: 0;
+  border-right: 0;
+  transform: rotate(24deg) skew(-33deg);
+  left: 8px;
+}
+.happy .mouth {
+  background: #000;
+  width: 30px;
+  height: 15px;
+  display: block;
+  border-radius: 0 0 30px 30px;
+  margin: -14px auto 0;
+}
+
+.notamused .eyes {
+  display: block;
+  text-align: center;
+}
+.notamused .eyes:before,
+.notamused .eyes:after {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 5px;
+  border: 3px solid #000;
+  border-right: 0;
+  border-left-width: 8px;
+  border-bottom: 0;
+  margin: 21px 0 0;
+  position: relative;
+  right: -2px;
+  border-radius: 50%;
+}
+.notamused .eyes:before {
+  left: -3px;
+}
+.notamused .mouth {
+  border: 4px solid #000;
+  width: 19px;
+  display: block;
+  margin: 2px auto 0;
+  border-bottom: 0;
+  height: 10px;
+  border-radius: 50%;
+  border-right: 0;
+  border-left: 0;
+}
+
+.depressed:before,
+.depressed:after {
+  content: "";
+  border: 3px solid #000;
+  width: 15px;
+  display: inline-block;
+  border-top: 0;
+  height: 7px;
+  border-radius: 50%;
+  border-right: 0;
+  border-left: 0;
+  position: relative;
+  left: 6px;
+  position: absolute;
+  top: 13px;
+  transform: rotate(-22deg);
+  opacity: 0.4;
+}
+.depressed:after {
+  left: auto;
+  right: 6px;
+  transform: rotate(22deg);
+}
+.depressed .eyes {
+  display: block;
+  text-align: center;
+}
+.depressed .eyes:before,
+.depressed .eyes:after {
+  content: "";
+  border: 4px solid #000;
+  width: 15px;
+  display: inline-block;
+  margin: 19px auto 0;
+  border-top: 0;
+  height: 10px;
+  border-radius: 50%;
+  border-right: 0;
+  border-left: 0;
+  position: relative;
+  left: 3px;
+}
+.depressed .eyes:before {
+  left: -3px;
+}
+.depressed .mouth {
+  width: 11px;
+  background: #000;
+  height: 3px;
+  display: block;
+  margin: 1px auto 0;
+  border-bottom: 0;
+  border-radius: 37%;
+}
+
+.angry:before,
+.angry:after {
+  content: "";
+  border: 3px solid #000;
+  width: 15px;
+  display: inline-block;
+  border-top: 0;
+  height: 7px;
+  border-radius: 50%;
+  border-right: 0;
+  border-left: 0;
+  position: relative;
+  left: 9px;
+  position: absolute;
+  top: 15px;
+  transform: rotate(22deg);
+}
+.angry:after {
+  left: auto;
+  right: 9px;
+  transform: rotate(-22deg);
+}
+.angry .eyes {
+  display: block;
+  text-align: center;
+}
+.angry .eyes:before,
+.angry .eyes:after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 22px 0 0;
+  position: relative;
+  right: -6px;
+  background: #000;
+  border-radius: 50%;
+}
+.angry .eyes:before {
+  left: -6px;
+}
+.angry .mouth {
+  border: 4px solid #000;
+  width: 19px;
+  display: block;
+  margin: 1px auto 0;
+  border-bottom: 0;
+  height: 10px;
+  border-radius: 50%;
+  border-right: 0;
+  border-left: 0;
+}
+
+.teary:before,
+.teary:after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #000;
+  border-radius: 50%;
+  border-top-right-radius: 0;
+  position: absolute;
+  top: 25px;
+  left: -8px;
+}
+.teary:after {
+  left: auto;
+  right: -8px;
+  border-radius: 50%;
+  border-top-left-radius: 0;
+}
+.teary .eyes {
+  display: block;
+  text-align: center;
+}
+.teary .eyes:before,
+.teary .eyes:after {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 3px solid #000;
+  border-bottom: 0;
+  position: relative;
+  left: -2px;
+  top: 9px;
+}
+.teary .eyes:after {
+  left: 2px;
+}
+.teary .mouth {
+  background: #000;
+  width: 30px;
+  height: 15px;
+  display: block;
+  border-radius: 0 0 30px 30px;
+  margin: 12px auto 0;
+}
+
+.happy,
+.notamused,
+.depressed,
+.angry,
+.teary {
+  display: block;
+  opacity: 0;
+}
+.happy,
+.teary {
+  animation: display 0.5s ease-in 1s forwards;
+}
+.notamused {
+  animation: display 0.7s ease-out 3.5s forwards;
+}
+.angry {
+  animation: display 0.7s ease-out 4.5s forwards;
+}
+.depressed {
+  animation: display 0.7s ease-out 5.5s forwards;
+}
+/* animations */
+@keyframes display {
+  to {
+    opacity: 1;
+  }
+}
+/* animations */
+@keyframes movefirst {
+  25% {
+    transform: rotate(25deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes movesecond {
+  25% {
+    transform: rotate(-25deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
